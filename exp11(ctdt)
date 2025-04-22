@@ -1,0 +1,57 @@
+%cosine signal t=0:0.1:10;
+y_ct=cos(t); n=0:1:10;
+y_dt=cos(n); figure; subplot(2,1,1);
+plot(t,y_ct);
+xlabel("TIme"); ylabel("AMplitude"); title("CT cosine signal"); subplot(2,1,2);
+stem(n,y_dt);
+xlabel("n"); ylabel("amplitude"); title("DT cosine signal");
+
+% sine signal t=0:0.1:10;
+y_ct=sin(t); n=0:1:10;
+y_dt=sin(n); figure; subplot(2,1,1);
+plot(t,y_ct);
+xlabel("TIme"); ylabel("AMplitude"); title("CT sine signal"); subplot(2,1,2);
+stem(n,y_dt);
+xlabel("n"); ylabel("amplitude"); title("DT sine signal");
+
+% exponential wave t=-2:0.1:5;
+x_ct=3*exp(0.4*t); n=-2:1:5;
+x_dt=3*exp(0.4*n); figure; subplot(2,1,1);
+plot(t,x_ct);
+xlabel("time"); ylabel("amplitude");
+title("CT exponential signal"); subplot(2,1,2);
+stem(n,x_dt);
+xlabel("n"); ylabel("amplitude");
+title("DT exponential signal");
+
+%DC signal t=-5:1:10;
+u_ct=ones(size(t)); n=-5:1:10;
+u_dt=ones(size(n)); figure; subplot(2,1,1);
+plot(t,u_ct);
+xlabel("time"); ylabel("amplitude"); title("CT DC signal"); subplot(2,1,2);
+stem(n,u_dt);
+xlabel("n"); ylabel("amplitude"); title("DT DC signal");
+
+%ramp t=0:0.1:10;
+r_ct=t; n=0:1:10;
+r_dt=n; figure; subplot(2,1,1);
+plot(t,r_ct);
+xlabel("time"); ylabel("amplitude"); title("CT ramp signal"); subplot(2,1,2);
+stem(n,r_dt);
+xlabel("n"); ylabel("amplitude"); title("DT ramp signal");
+
+%triangluar t=0:0.01:1;
+tri_ct=sawtooth(2*pi*5*t,0.5); n=0:10;
+tri_dt=sawtooth(2*pi*5*n/100,0.5); figure;
+subplot(2,1,1); plot(t,tri_ct); xlabel("time"); ylabel("amplitude"); title("CT triangle signal"); subplot(2,1,2); stem(n,tri_dt); xlabel("n"); ylabel("amplitude"); title("DT triangle signal");
+
+
+%square
+t=0:0.001:0.5;
+s_ct=square(2*pi*8*t,50); n=0:1:100;
+s_dt=square(2*pi*8*n/100,50); figure;
+subplot(2,1,1);
+plot(t,s_ct);
+xlabel("time"); ylabel("amplitude"); title("CT square signal"); subplot(2,1,2);
+stem(n,s_dt);
+xlabel("n"); ylabel("amplitude"); title("DT square signal");
