@@ -1,0 +1,45 @@
+%Rectangular
+wc = 0.5*pi;
+N = 25;
+a = (N-1)/2;
+n = 0:N-1;
+eps = 0.01;
+
+hd = (sin(pi*(n-a+eps)))-(sin(wc*(n-a+eps)))./ (pi*(n-a+eps));
+
+W = boxcar(N);
+Wt = transpose(W);
+
+h = hd.* Wt;
+figure;
+freqz(h);
+
+%hanning
+wc = 0.5*pi;
+N = 25;
+a = (N-1)/2;
+n = 0:N-1;
+eps = 0.01;
+
+hd = (sin(pi*(n-a+eps)))-(sin(wc*(n-a+eps)))./ (pi*(n-a+eps));
+W = hanning(N);
+Wt = transpose(W);
+
+h = hd.* Wt;
+figure;
+freqz(h);
+
+%hamming
+wc = 0.5*pi;
+N = 25;
+a = (N-1)/2;
+n = 0:N-1;
+eps = 0.01;
+
+hd = (sin(pi*(n-a+eps)))-(sin(wc*(n-a+eps)))./ (pi*(n-a+eps));
+W = hamming(N);
+Wt = transpose(W);
+
+h = hd.* Wt;
+figure;
+freqz(h);
