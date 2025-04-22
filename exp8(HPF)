@@ -1,0 +1,24 @@
+Ap = 0.6;
+As = 0.1;
+Wp = 0.35*pi;
+Ws = 0.7*pi;
+T = 0.1;
+rp = -20*log10(Ap);
+rs= -20*log10(As);
+
+wp = 2/T*tan(Wp/2);
+ws = 2/T*tan(Ws/2);
+
+[N,wc]= buttord(wp,ws,rp,rs,'s');
+
+[num1,denom1] = butter(N,1,'s');
+
+[num2,denom2] = butter(N,wc,'high','s');
+
+[num,denom] = bilinear(num2,denom2,1/T);
+w = 0:pi/16:pi;
+H = freqz(num,denom,w);
+
+H1 = abs(H);
+
+plot(w/pi,H1);
