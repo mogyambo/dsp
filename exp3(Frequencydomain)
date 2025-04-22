@@ -1,0 +1,20 @@
+clc;
+x = [1 1 1 1];
+X = fft(x);
+X_mag = abs(X);
+X_angle = angle(X);
+
+subplot(2,2,1);
+stem(x);
+
+subplot(2,2,2);
+stem(X);
+
+subplot(2,2,3);
+stem(X_mag);
+
+subplot(2,2,4);
+stem(X_angle);
+
+
+
