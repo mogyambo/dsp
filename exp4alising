@@ -1,0 +1,54 @@
+x = [1 2 3];
+h = [1 1 1];
+X = fft(x);
+H = fft(h); Y = X .* H;
+y_circular = ifft(Y);
+
+l1 = length(x); l2 = length(h);
+N = l1 + l2 - 1;	% Output length for linear convolution x_pad = [x, zeros(1, N - l1)];
+h_pad = [h, zeros(1, N - l2)]; X_pad = fft(x_pad);
+H_pad = fft(h_pad); Y_pad = X_pad .* H_pad; y_linear = ifft(Y_pad);
+
+figure;
+stem(0:length(y_circular)-1, real(y_circular)); title('Circular Convolution using FFT');
+
+xlabel('n');
+ylabel('y[n]'); grid on;
+
+figure;
+stem(0:length(y_linear)-1, real(y_linear)); title('Linear Convolution using FFT (Zero-Padded)'); xlabel('n');
+ylabel('y[n]'); grid on;
+
+
+
+
+
+
+
+
+clc;
+x = [1 2 3];
+h = [1 1 1 ];
+ X = fft(x);
+ H = fft(h);
+
+ Y = X.*H;
+ y = ifft(Y)
+
+
+
+
+
+l1 = length(x);
+ l2 = length(h);
+ N = l1 + l2 -1;
+ l1_new = N-l1;
+ l2_new = N - l2;
+
+ x = [x zeros(1,l1_new)];
+ h = [h zeros(1,l2_new)];
+ X = fft(x);
+ H = fft(h);
+
+ Y = X.*H;
+ y = ifft(Y)
