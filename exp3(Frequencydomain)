@@ -1,20 +1,35 @@
 clc;
 x = [1 1 1 1];
-X = fft(x);
-X_mag = abs(X);
-X_angle = angle(X);
+X = fft(x);%fft of signal
+X_mag = abs(X);%magnitude of fft
+X_angle = angle(X);%phase angle
+%original time domain signal
+figure;
+stem(x,'filled');
+xlabel('n');
+ylabel('x(n)');
+title('Original time domain signal');
 
-subplot(2,2,1);
-stem(x);
+%fft of x
+figure;
+stem(X,'filled');
+xlabel('frequency bin');
+ylabel('Amplitude');
+title('Fft of x');
 
-subplot(2,2,2);
-stem(X);
+%magnitude of fft
+figure;
+stem(X_mag,'filled');
+xlabel('frequency bin (k)');
+ylabel('|X(k)|');
+title('magnitude spectrum of x');
 
-subplot(2,2,3);
-stem(X_mag);
-
-subplot(2,2,4);
-stem(X_angle);
+%phase of fft
+figure;
+stem(X_angle,'filled');
+xlabel('frequency bin (k)');
+ylabel('| angle X(k)|');
+title('phase spectrum of x');
 
 
 
